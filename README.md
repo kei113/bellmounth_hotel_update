@@ -1,4 +1,4 @@
-# 🏨 Hotel Bellmounth (Sumber Jaya) - Management System
+# 🏨 Hotel Bellmounth - Management System
 
 [![Academic Project](https://img.shields.io/badge/Project-Academic-blue.svg)](https://github.com/)
 [![PHP](https://img.shields.io/badge/PHP-8.0+-777BB4.svg)](https://www.php.net/)
