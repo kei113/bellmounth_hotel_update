@@ -59,7 +59,7 @@ Sistem Informasi Manajemen Hotel Bellmounth adalah aplikasi berbasis web yang di
     git clone https://github.com/kei113/bellmounth_hotel_update.git
     ```
 2.  **Konfigurasi XAMPP**
-    - Pindahkan folder ke `C:\xampp\htdocs\sumberjaya`.
+    - Pindahkan folder ke `C:\xampp\htdocs\bellmounth_hotel`.
     - Aktifkan Apache dan MySQL di XAMPP Control Panel.
 3.  **Persiapan Database**
     - Buat database baru bernama `bellmounth` di phpMyAdmin.
