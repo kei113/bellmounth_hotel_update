@@ -1,0 +1,25 @@
+{
+  "roles": {
+    "admin": {
+      "label": "Admin",
+      "dashboard": "admin/index.php",
+      "permissions": ["read", "create", "update", "delete"]
+    },
+    "staff": {
+      "label": "Staff",
+      "dashboard": "reservasi/index.php",
+      "permissions": ["read", "create", "update"]
+    }
+  },
+  "modules": {
+    "tipe_kamar": { "allowed_roles": ["admin"] },
+    "kamar": { "allowed_roles": ["admin"] },
+    "room_management": { "allowed_roles": ["admin"] },
+    "reservasi": { "allowed_roles": ["admin", "staff"] },
+    "fnb_menu": { "allowed_roles": ["admin"] },
+    "room_service": { "allowed_roles": ["admin", "staff"] },
+    "housekeeping": { "allowed_roles": ["admin"] },
+    "services": { "allowed_roles": ["admin"] },
+    "activity_logs": { "allowed_roles": ["admin", "staff"] }
+  }
+}

@@ -1,0 +1,1103 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Apple-Style Ultra-Minimalist Champagne Gold Theme */
+  --primary-color: #1D1D1F;      /* Space Gray (Apple primary text) */
+  --primary-light: #F5F5F7;     /* Off-white light gray (Apple background/cards) */
+  --secondary-color: #86868B;   /* Cool gray (Apple secondary text) */
+  --accent-color: #BFA370;      /* Minimalist Champagne Gold Accent */
+  --accent-hover: #A38A5C;      /* Rich Gold Hover */
+  --accent-light: rgba(191, 163, 112, 0.08); /* Translucent Gold Accent */
+  --accent-gradient: linear-gradient(135deg, #BFA370 0%, #D4B380 100%);
+  --primary-gradient: linear-gradient(135deg, #1D1D1F 0%, #333336 100%);
+  
+  --success-color: #34C759;     /* iOS Green */
+  --danger-color: #FF3B30;      /* iOS Red */
+  --warning-color: #FF9500;     /* iOS Orange */
+  --info-color: #0071E3;        /* iOS Blue */
+  
+  --light-color: #FFFFFF;
+  --dark-color: #1D1D1F;
+  
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 80px;
+  --transition-speed: 0.3s;
+  
+  --body-bg: #FFFFFF;           /* Dominant Pure White Background */
+  --card-bg: #FFFFFF;           /* Pure White Cards */
+  
+  --text-color: #1D1D1F;        /* Space Gray text */
+  --text-muted: #86868B;        /* Cool Gray text */
+  --border-color: #E8E8ED;      /* Apple-style thin gray lines */
+  --border-light: rgba(232, 232, 237, 0.6);
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 12px 30px 0 rgba(0, 0, 0, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .page-title, .card-title, .modal-title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  color: var(--primary-color);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Force San Francisco/System globally, overriding legacy Playfair fonts */
+*, .playfair-display, [style*="Playfair Display"] {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* Sidebar Styles (Apple Modern White) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  background-color: #FFFFFF;
+  border-right: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: width var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow-x: hidden;
+  color: var(--text-color);
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  height: 70px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.sidebar-logo i {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+}
+
+.sidebar-logo span {
+  transition: opacity var(--transition-speed);
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-logo span {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+.sidebar-menu {
+  padding: 1.25rem 0.75rem;
+}
+
+.sidebar-item {
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.9rem;
+  color: #515154;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.sidebar-link:hover {
+  background-color: var(--primary-light); /* Soft Gray Hover #F5F5F7 */
+  color: var(--primary-color);
+}
+
+.sidebar-link.active {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-weight: 600;
+  border-left: 3px solid var(--accent-color); /* Elegant Champagne Gold accent line */
+  border-radius: 0 8px 8px 0;
+  padding-left: calc(0.9rem - 3px);
+}
+
+.sidebar-link i {
+  font-size: 1.15rem;
+  min-width: 20px;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.sidebar-link.active i {
+  color: var(--accent-color); /* Gold color for active icon */
+}
+
+.sidebar-link span {
+  transition: opacity var(--transition-speed);
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-link span {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+/* Top Navbar (Apple Translucent White) */
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 999;
+  transition: left var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar.collapsed ~ .top-navbar {
+  left: var(--sidebar-collapsed-width);
+}
+
+.page-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.user-avatar:hover {
+  transform: scale(1.04);
+}
+
+/* Main Content Wrapper */
+.main-content {
+  margin-left: var(--sidebar-width);
+  margin-top: 70px;
+  padding: 2.25rem;
+  min-height: calc(100vh - 70px);
+  transition: margin-left var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #FFFFFF;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Outer layout reset for container card */
+.main-content > .container-fluid > .dashboard-card {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: visible !important;
+}
+
+.main-content > .container-fluid > .dashboard-card::before {
+  display: none !important;
+}
+
+.main-content > .container-fluid > .dashboard-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Apple-Style Minimalist Cards */
+.dashboard-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--shadow);
+}
+
+.dashboard-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card-header-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  transition: all 0.2s ease;
+}
+
+.card-icon.primary {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.card-icon.success {
+  background-color: rgba(52, 199, 89, 0.08);
+  color: var(--success-color);
+}
+
+.card-icon.warning {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+}
+
+.card-value {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+}
+
+/* Modern Apple-like Status Pills */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+.status-pill::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-pill.success {
+  background-color: rgba(52, 199, 89, 0.08);
+  color: #1d7c34;
+}
+
+.status-pill.success::before {
+  background-color: var(--success-color);
+}
+
+.status-pill.pending {
+  background-color: rgba(255, 149, 0, 0.08);
+  color: #b26900;
+}
+
+.status-pill.pending::before {
+  background-color: var(--warning-color);
+}
+
+.status-pill.failed, .status-pill.danger {
+  background-color: rgba(255, 59, 48, 0.08);
+  color: #b22921;
+}
+
+.status-pill.failed::before, .status-pill.danger::before {
+  background-color: var(--danger-color);
+}
+
+.status-pill.info {
+  background-color: rgba(0, 113, 227, 0.08);
+  color: #0056ad;
+}
+
+.status-pill.info::before {
+  background-color: var(--info-color);
+}
+
+.status-pill.secondary {
+  background-color: var(--primary-light);
+  color: #515154;
+}
+
+.status-pill.secondary::before {
+  background-color: var(--secondary-color);
+}
+
+/* Bootstrap Badge Overrides */
+.badge.bg-success, .badge.bg-warning, .badge.bg-primary, .badge.bg-danger, .badge.bg-secondary, .badge.bg-info, .badge.bg-light {
+  border-radius: 100px;
+  padding: 0.25rem 0.65rem;
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  box-shadow: none;
+}
+
+.badge.bg-success {
+  background-color: rgba(52, 199, 89, 0.08) !important;
+  color: #1d7c34 !important;
+  border: 1px solid rgba(52, 199, 89, 0.15);
+}
+
+.badge.bg-warning {
+  background-color: rgba(255, 149, 0, 0.08) !important;
+  color: #b26900 !important;
+  border: 1px solid rgba(255, 149, 0, 0.15);
+}
+
+.badge.bg-primary {
+  background-color: rgba(0, 113, 227, 0.08) !important;
+  color: #0056ad !important;
+  border: 1px solid rgba(0, 113, 227, 0.15);
+}
+
+.badge.bg-danger {
+  background-color: rgba(255, 59, 48, 0.08) !important;
+  color: #b22921 !important;
+  border: 1px solid rgba(255, 59, 48, 0.15);
+}
+
+.badge.bg-secondary {
+  background-color: var(--primary-light) !important;
+  color: #515154 !important;
+  border: 1px solid var(--border-color);
+}
+
+.badge.bg-info {
+  background-color: rgba(0, 113, 227, 0.08) !important;
+  color: #0056ad !important;
+  border: 1px solid rgba(0, 113, 227, 0.15);
+}
+
+.badge.bg-light {
+  background-color: var(--primary-light) !important;
+  color: var(--primary-color) !important;
+  border: 1px solid var(--border-color);
+}
+
+/* Minimalist Apple Buttons */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.5rem 1.15rem;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color); /* Solid space-gray button */
+  border: 1px solid var(--primary-color);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #333336;
+  border-color: #333336;
+  color: #FFFFFF;
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--border-color);
+  background-color: #FFFFFF;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-light);
+  border-color: var(--border-color);
+  color: var(--primary-color) !important;
+}
+
+.btn-warning {
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: #FFFFFF;
+}
+
+.btn-warning:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #FFFFFF;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  color: #FFFFFF;
+}
+
+.btn-danger:hover {
+  background-color: #d82c23;
+  border-color: #d82c23;
+}
+
+.btn-success {
+  background-color: var(--success-color) !important;
+  border: 1px solid var(--success-color) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-success:hover {
+  background-color: #2eb04e !important;
+  border-color: #2eb04e !important;
+  color: #FFFFFF !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color) !important;
+  border: 1px solid var(--secondary-color) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-secondary:hover {
+  background-color: #727277 !important;
+  border-color: #727277 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-dark {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-dark:hover {
+  background-color: #333336 !important;
+  border-color: #333336 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-info {
+  background-color: var(--primary-light);
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+.btn-info:hover {
+  background-color: #E8E8ED;
+}
+
+.btn-light {
+  background-color: var(--primary-light) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.btn-light:hover {
+  background-color: #E8E8ED !important;
+  border-color: #D2D2D7 !important;
+  color: var(--primary-color) !important;
+}
+
+/* Elegant Apple-Style Outline Buttons */
+.btn-outline-secondary {
+  color: var(--secondary-color) !important;
+  border-color: var(--border-color) !important;
+  background-color: #FFFFFF !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--primary-light) !important;
+  border-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.btn-outline-success {
+  color: var(--success-color) !important;
+  border-color: rgba(52, 199, 89, 0.25) !important;
+  background-color: #FFFFFF !important;
+}
+
+.btn-outline-success:hover {
+  background-color: rgba(52, 199, 89, 0.05) !important;
+  border-color: var(--success-color) !important;
+  color: var(--success-color) !important;
+}
+
+.btn-outline-danger {
+  color: var(--danger-color) !important;
+  border-color: rgba(255, 59, 48, 0.25) !important;
+  background-color: #FFFFFF !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: rgba(255, 59, 48, 0.05) !important;
+  border-color: var(--danger-color) !important;
+  color: var(--danger-color) !important;
+}
+
+.btn-outline-warning {
+  color: var(--accent-color) !important;
+  border-color: rgba(191, 163, 112, 0.25) !important;
+  background-color: #FFFFFF !important;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--accent-light) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+.btn-outline-info {
+  color: var(--info-color) !important;
+  border-color: rgba(0, 113, 227, 0.2) !important;
+  background-color: #FFFFFF !important;
+}
+
+.btn-outline-info:hover {
+  background-color: rgba(0, 113, 227, 0.05) !important;
+  border-color: var(--info-color) !important;
+  color: var(--info-color) !important;
+}
+
+/* Apple-Style Minimalist Tables */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.01);
+  border-collapse: collapse;
+}
+
+.table th {
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--primary-light);
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+  color: var(--text-color);
+  font-size: 0.88rem;
+}
+
+.table tr:hover td {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* General Card Design Override */
+.card {
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  background-color: #FFFFFF;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card .card-header {
+  background-color: var(--primary-light);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+}
+
+.card .card-title {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.95rem;
+}
+
+.card .card-body {
+  padding: 1.25rem;
+}
+
+.card .card-footer {
+  background-color: var(--primary-light);
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+}
+
+/* Progress bar overrides */
+.progress {
+  border-radius: 100px;
+  background-color: var(--primary-light);
+  height: 6px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: var(--accent-gradient);
+  border-radius: 100px;
+}
+
+/* Dynamic status cards borders */
+.card.border-success {
+  border-color: rgba(52, 199, 89, 0.25) !important;
+}
+
+.card.border-danger {
+  border-color: rgba(255, 59, 48, 0.25) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-success {
+  color: #1d7c34 !important;
+}
+
+.text-danger {
+  color: var(--danger-color) !important;
+}
+
+.text-warning {
+  color: #b26900 !important;
+}
+
+/* Footer (Apple Light style) */
+.footer {
+  margin-left: var(--sidebar-width);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  transition: margin-left var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #FFFFFF;
+}
+
+.sidebar.collapsed ~ .footer {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.active { transform: translateX(0); }
+  .main-content, .top-navbar, .footer { margin-left: 0; }
+  .sidebar.collapsed ~ .main-content, 
+  .sidebar.collapsed ~ .top-navbar, 
+  .sidebar.collapsed ~ .footer { margin-left: 0; }
+}
+
+/* ==========================================
+   Seamless Animations & Interactive Micro-Effects
+   ========================================== */
+
+/* 1. Page Entry (Fade-In & Slide-Up) */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content {
+  animation: pageFadeIn 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* 2. Premium Slim Top Progress Bar */
+.top-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  z-index: 99999;
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s cubic-bezier(0.1, 0.8, 0.2, 1), opacity 0.2s ease;
+  box-shadow: 0 0 10px rgba(191, 163, 112, 0.4);
+}
+
+/* 3. Page Exit (Fade-Out & Slide-Up) */
+body.page-transitioning .main-content {
+  opacity: 0 !important;
+  transform: translateY(-8px) !important;
+  transition: opacity 0.28s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* 4. Custom Backdrop Blur & Easing for Modals */
+.modal {
+  z-index: 1060 !important;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(0px);
+  transition: opacity 0.35s ease, backdrop-filter 0.35s ease !important;
+}
+
+.modal-backdrop.show {
+  opacity: 1 !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Custom Modal Dialog Transitions */
+.modal.fade .modal-dialog {
+  transform: scale(0.96) translateY(12px) !important;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  opacity: 0;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1) translateY(0) !important;
+  opacity: 1;
+}
+
+/* Apple Modals Design Styling */
+.modal-content {
+  border-radius: 14px !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-lg) !important;
+  overflow: hidden;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--border-color) !important;
+  background-color: var(--primary-light);
+  padding: 1rem 1.25rem !important;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-color) !important;
+  background-color: var(--primary-light);
+  padding: 1rem 1.25rem !important;
+}
+
+/* 5. Elegant Dropdown Open Animations */
+.dropdown-menu {
+  display: block !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.22s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.22s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0.22s !important;
+  pointer-events: none;
+  border-radius: 10px !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 0.35rem !important;
+}
+
+.dropdown-menu.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+.dropdown-item {
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  transition: all 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+}
+
+/* 6. Forms, Inputs, Selects Interactive Transitions */
+.form-control, .form-select {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 0.55rem 0.85rem;
+  font-size: 0.88rem;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #FFFFFF;
+  color: var(--primary-color);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 3px rgba(191, 163, 112, 0.15) !important;
+  background-color: #FFFFFF;
+  outline: none;
+}
+
+.form-check-input {
+  border-color: var(--border-color);
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.form-check-input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 7. Alerts */
+.alert {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.85rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: var(--shadow-sm);
+  animation: alertFadeIn 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes alertFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-success {
+  background-color: rgba(52, 199, 89, 0.06) !important;
+  border-color: rgba(52, 199, 89, 0.15) !important;
+  color: #1d7c34 !important;
+}
+
+.alert-danger {
+  background-color: rgba(255, 59, 48, 0.06) !important;
+  border-color: rgba(255, 59, 48, 0.15) !important;
+  color: #b22921 !important;
+}
+
+/* 8. Toasts */
+.toast {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color) !important;
+  border-radius: 10px !important;
+  box-shadow: var(--shadow-lg) !important;
+  overflow: hidden;
+  animation: toastSlideIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* 9. Custom Loading Spinner Overlay Styling */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.spinner-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.spinner-container {
+  text-align: center;
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.spinner-container p {
+  margin-top: 0.75rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(0, 0, 0, 0.05);
+  border-top: 3px solid var(--primary-color); /* space-gray loading ring */
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   10. Apple-Style Nav Pills (Segmented Controls)
+   ========================================== */
+.nav-pills {
+  background-color: var(--primary-light) !important; /* Soft gray capsule background #F5F5F7 */
+  padding: 4px !important;
+  border-radius: 10px !important;
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  gap: 2px !important;
+  border: 1px solid var(--border-color) !important; /* #E8E8ED */
+  box-shadow: var(--shadow-sm) !important;
+  width: fit-content;
+}
+
+.nav-pills .nav-item {
+  margin: 0 !important;
+}
+
+.nav-pills .nav-link {
+  color: var(--text-muted) !important; /* #86868B */
+  font-weight: 500 !important;
+  font-size: 0.82rem !important;
+  padding: 0.45rem 1.1rem !important;
+  border-radius: 8px !important;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  background-color: transparent !important;
+  border: none !important;
+  text-transform: capitalize !important;
+}
+
+.nav-pills .nav-link:hover {
+  color: var(--primary-color) !important; /* #1D1D1F */
+  background-color: rgba(29, 29, 31, 0.03) !important;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--primary-color) !important; /* #1D1D1F */
+  background-color: #FFFFFF !important; /* Pure white active pill standing out from soft gray base */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 1px 0 rgba(0, 0, 0, 0.04) !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================
+   11. Global Minimalist Pagination Overrides
+   ========================================== */
+.pagination {
+  gap: 4px !important;
+}
+
+.pagination .page-link {
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-muted) !important;
+  background-color: #FFFFFF !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.pagination .page-link:hover {
+  background-color: var(--primary-light) !important;
+  border-color: var(--border-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+
+.pagination .page-item.disabled .page-link {
+  background-color: #FFFFFF !important;
+  border-color: var(--border-color) !important;
+  color: #C7C7CC !important;
+  opacity: 0.5;
+}
+
