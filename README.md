@@ -5,7 +5,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-5.7+-4479A1.svg)](https://www.mysql.com/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3.svg)](https://getbootstrap.com/)
 
-Sistem Informasi Manajemen Hotel Bellmounth (Sumber Jaya) adalah aplikasi berbasis web yang dirancang untuk mendigitalisasi operasional harian hotel, mulai dari manajemen inventori kamar hingga alur reservasi kompleks dengan arsitektur **Master-Detail**.
+Sistem Informasi Manajemen Hotel Bellmounth adalah aplikasi berbasis web yang dirancang untuk mendigitalisasi operasional harian hotel, mulai dari manajemen inventori kamar hingga alur reservasi kompleks dengan arsitektur **Master-Detail**.
 
 ---
 
