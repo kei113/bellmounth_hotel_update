@@ -73,22 +73,3 @@ Sistem Informasi Manajemen Hotel Bellmounth adalah aplikasi berbasis web yang di
     DB_PASS=
     BASE_PATH=/sumberjaya
     ```
-5.  **Akses Aplikasi**
-    - Buka browser dan akses `http://localhost/sumberjaya`.
-
----
-
-## 📐 Perancangan (Wireframes)
-
-Proyek ini dirancang menggunakan **PlantUML Salt** untuk memastikan pengalaman pengguna (UX) yang logis sebelum tahap implementasi. Anda dapat melihat file `.puml` di dalam direktori proyek untuk detail rancangan wireframe halaman Login, Dashboard, dan Reservasi.
-
----
-
-## 📝 Dokumentasi Teknis
-
-Dokumentasi lengkap sistem ini tersedia dalam 13 Bab modul yang mencakup penjelasan baris-per-baris kode, diagram alur, dan kamus data database.
-
----
-
-**Hotel Bellmounth Project**
-_Dikembangkan untuk Tugas Akhir Mata Kuliah Pemrograman Web._
