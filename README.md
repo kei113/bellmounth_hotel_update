@@ -56,7 +56,7 @@ Sistem Informasi Manajemen Hotel Bellmounth adalah aplikasi berbasis web yang di
 
 1.  **Clone Repository**
     ```bash
-    git clone https://github.com/username/sumberjaya.git
+    git clone https://github.com/kei113/bellmounth_hotel_update.git
     ```
 2.  **Konfigurasi XAMPP**
     - Pindahkan folder ke `C:\xampp\htdocs\sumberjaya`.
@@ -71,5 +71,5 @@ Sistem Informasi Manajemen Hotel Bellmounth adalah aplikasi berbasis web yang di
     DB_NAME=bellmounth
     DB_USER=root
     DB_PASS=
-    BASE_PATH=/sumberjaya
+    BASE_PATH=/bellmounth_hotel
     ```
